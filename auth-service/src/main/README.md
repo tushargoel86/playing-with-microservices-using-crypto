@@ -5,6 +5,7 @@ This service is heart of our project as it maintains all the security work. As n
 
 By default '/login/' is used for getting token but we are going to use customized uri as read through cloud config server.
 
+
 # Authentication Workflow
 
 The authentication flow is simple as:
