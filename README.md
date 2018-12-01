@@ -26,4 +26,4 @@ Component of our project are:
 
 We will going to have all this component implemented step by step. We first have auth services up.
 
-# Authentication Service:  [a relative link](auth-service/README.md)
+# Authentication Service:  [a relative link](auth-service)
