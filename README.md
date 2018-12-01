@@ -131,7 +131,7 @@ We will have following requirement for our services :
 		 	.cors().and().csrf().disable() 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and()
 			.authorizeRequests()
-		     .antMatchers("/api/createUser").permitAll() 
+		        .antMatchers("/api/createUser").permitAll() 
 		     	.antMatchers(HttpMethod.POST, jwtConfig().getUri().trim()).permitAll() 
 			.anyRequest().authenticated()
 			.and()
@@ -178,10 +178,12 @@ We will override 3 methods:
     Authentication authentication = null;
 
 		try {	
-			Credentials credentials = new ObjectMapper().readValue(request.getInputStream(), Credentials.class);
+			Credentials credentials = new ObjectMapper()
+			                        .readValue(request.getInputStream(), Credentials.class);
 
 			authentication = authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(credentials.getUsername(), credentials.getPassword()));
+					new UsernamePasswordAuthenticationToken(
+					   credentials.getUsername(), credentials.getPassword()));
 		} catch (UsernameNotFoundException | IOException e) {
 			throw new RuntimeException(e.getMessage());
 		}
@@ -206,17 +208,26 @@ JWT contains following things:
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication authentication) throws IOException, ServletException {
 
-		ZonedDateTime expirationTime = ZonedDateTime.now(ZoneOffset.UTC).plus(jwtConfig.getExpirationTime(),
-				ChronoUnit.MILLIS);
+		ZonedDateTime expirationTime = ZonedDateTime
+		                                  .now(ZoneOffset.UTC)
+						  .plus(jwtConfig.getExpirationTime(), ChronoUnit.MILLIS);
 
 
-		Claims claims = Jwts.claims().setSubject(authentication.getName());
-		List<String> roles = authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority)
-				.collect(Collectors.toList());
+		Claims claims = Jwts
+		                  .claims()
+				  .setSubject(authentication.getName());
+				  
+		List<String> roles = authentication.getAuthorities()
+		                             .stream()
+					     .map(GrantedAuthority::getAuthority)
+				             .collect(Collectors.toList());
 		claims.put("scopes", roles);
 
-		String token = Jwts.builder().setClaims(claims).setExpiration(Date.from(expirationTime.toInstant()))
-				.signWith(io.jsonwebtoken.SignatureAlgorithm.HS512, jwtConfig.getSecret()).compact();
+		String token = Jwts.builder()
+		                   .setClaims(claims)
+				   .setExpiration(Date.from(expirationTime.toInstant()))
+				   .signWith(io.jsonwebtoken.SignatureAlgorithm.HS512, jwtConfig.getSecret())
+				   .compact();
 
 		response.getWriter().write(token);
 	}
