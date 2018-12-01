@@ -1,10 +1,10 @@
 # playing-with-microservices-using-crypto
-In this i am trying perform crypto operation using microservices
+In this i am trying to perform crypto operations using microservices
 
 
 # Description: 
 
-In this project we will going to perform crypto operation request using our crypto microservices. We will going to use
+In this project we will going to perform crypto operation using our crypto microservices. We will going to use
 following things:
 
 1) API Gateway (Zuul)         :   Gateway for all the services. All request must come here  
@@ -12,7 +12,7 @@ following things:
 3) Service Discovery (Eureka) :   For discovering our services
 4) Spring cloud Config Server :   To store all common config 
 5) Authentication using JWT   :   JWT for authentication
-6) Database (mysql)           :   To store user credentials and roles
+6) Database (mysql)           :   To store user credentials and roles using hibernate
 7) Feign Client               :   To communicate with other microservices
 8) Hystrix                    :   For Fault tolreance our services
 
@@ -24,25 +24,30 @@ Component of our project are:
 
  
 
-We will going to have all this component implemented slow by slow. We first have auth services up.
+We will going to have all this component implemented step by step. We first have auth services up.
 
+
+# Authentication Service:
+
+This service is heart of our project as it maintains all the security work. As name suggests this service will validate the credential, issuing token (JWT) to authenticated user, create new user.
+
+By default '/login/' is used for getting token but we are going to use customized uri as read through cloud config server.
 
 # Authentication Workflow
 
 The authentication flow is simple as:
 
-1.	The user sends a request to get a token passing his credentials.
+1.	The user sends a request to get a token by passing his credentials.
 2.	The server validates the credentials and sends back a token.
 3.	With every request, the user has to provide the token, and server will validate that token.
 
-We’ll introduce another service called ‘auth service’ for validating user credentials, and issuing tokens.
+We’ll introduce service called ‘auth service’ for validating user credentials, and issuing tokens.
 
 What about validating the token? Well, it can be implemented in the auth service itself, and the gateway has to call the auth service to validate the token before allowing the requests to go to any service.
 
 Instead, we can validate the tokens at the gateway level, and let the auth service validate user credentials, and issue tokens. And that’s what we’re going to do here.
 
-
-In both ways, we are blocking the requests unless it’s authenticated (except the requests for generating tokens).
+In both ways, only authenticated request pass.
 
 # Directory Structure:  Auth-Service
 
@@ -185,9 +190,12 @@ We will override 3 methods:
 	}
 ```
 
-Once user is authenticated we need to return token (JWT)
+Internally authnetication manager call the user service class(CustomUserDetailsService) to find the user details using username.
+CustomUserDetailsService uses JPA repository to find the details. Once user is authenticated we need to return token (JWT)
 
-Structure of JWT: JWT contains following things:
+Structure of JWT:
+
+JWT contains following things:
 	    1) Expiry time
 	    2) Username
 	    3) Role assign to the user
@@ -214,3 +222,4 @@ Structure of JWT: JWT contains following things:
 	}
 ```
 
+In case of unsuccessful authentication proper error response will be sent to the user.
