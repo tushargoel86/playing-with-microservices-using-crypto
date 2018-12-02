@@ -25,38 +25,44 @@ In both ways, only authenticated request pass.
 # Directory Structure:  Auth-Service
 
  ```bash
-───src
-   ├───main
-      ├───java
-      │   └───com
-      │       └───tushar
-      │           └───crypto
-      │               └───auth
-      │                   │   AuthServiceApplication.java
-      │                   │
-      │                   ├───config
-      │                   │       JwtConfig.java
-      │                   │       SecurityConfig.java
-      │                   │
-      │                   ├───endpoint
-      │                   │       Endpoint.java
-      │                   │
-      │                   ├───filter
-      │                   │       JwtAuthenticationFilter.java
-      │                   │
-      │                   ├───model
-      │                   │       ApplicationUser.java
-      │                   │       Credentials.java
-      │                   │       Role.java
-      │                   │
-      │                   ├───repository
-      │                   │       DbServiceRepository.java
-      │                   │
-      │                   └───service
-      │                           CustomUserDetailsService.java
-      │
-      └───resources
-             bootstrap.properties
+C:.
+│   data.sql
+│   pom.xml
+│   README.md
+│
+└───src
+    └───main
+        ├───java
+        │   └───com
+        │       └───tushar
+        │           └───crypto
+        │               └───auth
+        │                   │   AuthServiceApplication.java
+        │                   │
+        │                   ├───config
+        │                   │       JwtConfig.java
+        │                   │       SecurityConfig.java
+        │                   │
+        │                   ├───endpoint
+        │                   │       Endpoint.java
+        │                   │
+        │                   ├───filter
+        │                   │       JwtAuthenticationFilter.java
+        │                   │
+        │                   ├───model
+        │                   │       ApplicationUser.java
+        │                   │       Credentials.java
+        │                   │       Role.java
+        │                   │
+        │                   ├───repository
+        │                   │       DbServiceRepository.java
+        │                   │
+        │                   └───service
+        │                           CustomUserDetailsService.java
+        │
+        └───resources
+                bootstrap.properties
+
     
  ```
  
