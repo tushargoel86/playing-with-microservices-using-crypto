@@ -1,4 +1,4 @@
-# playing-with-microservices-using-crypto
+# playing-with-microservices-using-crypto-operations
 In this i am trying to perform crypto operations using microservices
 
 
@@ -24,6 +24,12 @@ Component of our project are:
 
  
 
-We will going to have all this component implemented step by step. We first have auth services up.
+We will going to have all this component implemented step by step. 
 
 # Authentication Service:  [a relative link](auth-service)
+
+# Config Server:  [a relative link](config-server)
+
+# Naming server:  [a relative link](service-discovery)
+
+I will implement the rest part soon and will upload it.
