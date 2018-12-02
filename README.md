@@ -32,4 +32,6 @@ We will going to have all this component implemented step by step.
 
 # Naming server:  [a relative link](service-discovery)
 
+# API Gateway: [a relative link](api-gateway-service)
+
 I will implement the rest part soon and will upload it.
