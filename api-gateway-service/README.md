@@ -10,6 +10,42 @@ This API gateway is responsible for:
 5) It validates user token
 6) Custom exception handling for 'Access Denied' and 'Invalid Credentials'
 
+Directory structure:
+
+```
+C:.
+│   pom.xml
+│
+└───src
+    └───main
+        ├───java
+        │   └───com
+        │       └───tushar
+        │           └───crypto
+        │               └───apigateway
+        │                   │   APIGatewayServer.java
+        │                   │
+        │                   ├───config
+        │                   │       JwtConfig.java
+        │                   │       SecurityConfig.java
+        │                   │
+        │                   ├───endpoint
+        │                   │       CreateUserProxy.java
+        │                   │       EndPoint.java
+        │                   │
+        │                   ├───exceptionhandler
+        │                   │       CustomAccessDeniedHandler.java
+        │                   │       CustomAuthenticationEntryPointHandler.java
+        │                   │       CustomAuthenticationFailureHandler.java
+        │                   │       ExceptionHandlerFilter.java
+        │                   │
+        │                   └───filter
+        │                           JwtAuthorizationFilter.java
+        │
+        └───resources
+                bootstrap.properties
+```
+
 REST APIs:
 
 PORTS used
@@ -25,9 +61,7 @@ Auth Service	 8899
 ```
 
 
-# for token creation:
-
-http://localhost:8765/auth/token
+# for token creation:   http://localhost:8765/auth/token
 
 request:  JSON request
 
@@ -36,7 +70,7 @@ request:  JSON request
 	"password" :  xxx
 }
 
-# for user creation:
+# for user creation:  http://localhost:8765/createUser
 
 form variables:
 ```
@@ -45,7 +79,7 @@ password:
 role:  (USER/ADMIN)
 ```
 
-http://localhost:8765/createUser
+
 
 Initially a user needs to be added in database which admin access. I will add sql scripts shortly.
 
