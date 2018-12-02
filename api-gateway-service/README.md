@@ -47,6 +47,5 @@ role:  (USER/ADMIN)
 
 http://localhost:8765/createUser
 
-Initially a user needs to be added in database which admin access.
-
+Initially a user needs to be added in database which admin access. I will add sql scripts shortly.
 
