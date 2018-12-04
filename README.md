@@ -26,12 +26,14 @@ Component of our project are:
 
 We will going to have all this component implemented step by step. 
 
-# Authentication Service:  [a relative link](auth-service)
+# Authentication Service:  [auth-service](auth-service)
 
-# Config Server:  [a relative link](config-server)
+# Config Server:  [config-server](config-server)
 
-# Naming server:  [a relative link](service-discovery)
+# Naming server:  [service-discovery](service-discovery)
 
-# API Gateway: [a relative link](api-gateway-service)
+# API Gateway: [api-gateway-service](api-gateway-service)
+
+# Crypto Services: [crypto-services](crypto-services)
 
 I will implement the rest part soon and will upload it.
