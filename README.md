@@ -36,4 +36,26 @@ We will going to have all this component implemented step by step.
 
 # Crypto Services: [crypto-services](crypto-services)
 
-I will implement the rest part soon and will upload it.
+I have used following ports:
+
+PORTS used
+
+```bash
+
+Services	    Ports
+API Gateway	   8765
+Eureka Server	 8761
+Config Server	 9999
+Auth Service	  8899
+Crypto Serice  8889
+
+```
+
+Steps to use:
+
+1) Create a first user in the database using [file](auth-service/data.sql)
+2) Send a token request to the server as defined [here](api-gateway-service/README.md)
+3) Once you have token either you can create a new user [here](api-gateway-service/README.md) or send a crypto request as defined [here](crypto-services)
+
+
+
