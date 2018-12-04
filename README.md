@@ -58,4 +58,6 @@ Steps to use:
 3) Once you have token either you can create a new user as defined [here](api-gateway-service/README.md) or send a crypto request as defined [here](crypto-services)
 
 
+In future, I will try to implement Sleuth for logging as well.
+
 
