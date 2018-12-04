@@ -72,6 +72,8 @@ request:  JSON request
 
 # for user creation:  http://localhost:8765/createUser
 
+In addition to form variables defined as below we also need to send JWT token as authroization header.
+
 form variables:
 ```
 username:  
