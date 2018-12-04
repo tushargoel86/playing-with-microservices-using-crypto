@@ -55,7 +55,7 @@ Steps to use:
 
 1) Create a first user in the database using [file](auth-service/data.sql)
 2) Send a token request to the server as defined [here](api-gateway-service/README.md)
-3) Once you have token either you can create a new user [here](api-gateway-service/README.md) or send a crypto request as defined [here](crypto-services)
+3) Once you have token either you can create a new user as defined [here](api-gateway-service/README.md) or send a crypto request as defined [here](crypto-services)
 
 
 
