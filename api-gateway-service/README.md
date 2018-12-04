@@ -74,6 +74,8 @@ request:  JSON request
 
 In addition to form variables defined as below we also need to send JWT token as authroization header.
 
+Only user with **admin** access can create a new user.
+
 form variables:
 ```
 username:  
