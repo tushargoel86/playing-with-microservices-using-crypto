@@ -19,15 +19,6 @@
 	</parent>
 
 
-	<repositories>
-		<repository>
-			<id>in-project</id>
-			<name>In Project Repo</name>
-			<url>file://${project.basedir}/libs</url>
-		</repository>
-	</repositories>
-
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -35,10 +26,6 @@
 	</properties>
 
 	<dependencies>
-		 <dependency> <groupId>nae</groupId> <artifactId>IngrianNAE</artifactId>
-			<scope>system</scope> <version>8.9.1.000</version> <systemPath>C:/Users/tgoel/.m2/repository/nae/IngrianNAE/8.9.1.000/IngrianNAE-8.9.1.000.jar</systemPath> 
-			</dependency>  
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -59,16 +46,7 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 			<version>2.0.1.RELEASE</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-client</artifactId>
-		</dependency>
-<!-- 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		 -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
