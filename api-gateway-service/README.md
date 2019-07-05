@@ -130,7 +130,7 @@ To configure security configuration in the application. It helps to configure:
 This service will interact with other microservices for user creation. In this instead calling directly microservices,
 we are routing request through API gateway.  
 
-'''
+```
 @FeignClient(name="netflix-zul-service")
 @RibbonClient(name="auth-service")
 @EnableDiscoveryClient
@@ -142,7 +142,7 @@ public interface CreateUserProxy {
 			@RequestParam("password") String password,
 			@RequestParam("role")String role);
 }
-'''
+```
 
 # EndPoint.java
 
